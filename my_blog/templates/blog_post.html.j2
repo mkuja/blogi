@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="rounded-sm max-w-4xl p-0 m-0 flex flex-col">
+
+{% for post in posts %}
+  <div class="mx-0 mb-6 p-3 bg-amber-50">
+<!--    <div class="flex place-content-between">-->
+<!--      <p class="font-serif">Otsikko</p>-->
+<!--      <p class="font-mono font-thin mr-4">11.12.2023</p>-->
+<!--    </div>-->
+    <div class="blog-post mt-4 text-justify border-r-amber-900">
+      {{ post }}
+    </div>
+  </div>
+{% endfor %}
+
+</div>
+{% endblock %}

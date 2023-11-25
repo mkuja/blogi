@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kaikkea hömppää</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="codehilight.css">
+</head>
+<body class="bg-gray-800">
+  <div class="bg-amber-50 text-gray-800 font-bold text-8xl">
+    <p class="font-mono text-2xl ml-7 translate-y-7">Teknohiiri Felixin seikkailuja.</p>
+    <p class="font-thin text-base ml-10 left-16 top-0 translate-y-7">
+      Eli jotain koodailusta, sekä hieman peleistä. Muuta täältä tuskin löydätkään.</p>
+    <p class="pb-2 mt-7">. . ..<span class="inline-block animate-wiggle">~(,,^></span></p>
+  </div>
+
+  <div class="px-6 my-6 mr-auto max-w-5xl bg-white flex rounded-r-sm">
+    <div class="py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+      <a href="about_me.html">Minä itse</a>
+    </div>
+    <div class="ml-7 py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+      <a href="blog_posts_overview">Blogi</a>
+    </div>
+  </div>
+   <div class="ml-20 text-lg">
+      {% block content %}
+      {% endblock %}
+    </div>
+</body>
+</html>
