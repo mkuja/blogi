@@ -8,12 +8,16 @@
     margin-top: 0.8rem;
     margin-bottom: 0.2rem;
     font-size: 1.5rem;
+    border-left: 2px dashed black;
+    padding-left: 0.5rem;
 }
 
 .blog_content h3 {
     margin-top: 0.8rem;
     margin-bottom: 0.2rem;
     font-size: 1.3rem;
+    border-left: 2px dashed black;
+    padding-left: 0.5rem;
 }
 
 .blog_content p {
@@ -22,6 +26,18 @@
     margin-right: 1rem;
     text-align: justify;
     text-justify: inter-character;
+}
+
+.blog_content ul {
+    list-style-type: disc;
+    margin-left: 2.5rem;
+}
+
+.blog_content a:link {
+    color: #CD5555;
+}
+.blog_content a:visited {
+    color: #CD5555;
 }
 
 .codehilite {
