@@ -1,24 +1,17 @@
-import pathlib
 from pathlib import Path
-from typing import List
 import markdown as mk
 
 from jinja2 import Environment
 
 
-def render_blog(env: Environment, post_files_path: pathlib.Path):
+def render_blog(env: Environment, input_md_file_path: str, outdir: str):
     tmpl = env.get_template('blog_post.html.j2')
-    posts = []
-    for file_path in post_files_path.glob('*.md'):
-        with open(file_path, 'r', encoding="utf-8") as fh:
-            s = fh.read()
-            posts.append((file_path, s))
+    with open(input_md_file_path, 'r', encoding="utf-8") as fh:
+        s = fh.read()
 
-    for ndx, post in enumerate(posts):
-        html = mk.markdown(post[1])
-        parts = post[0].parts[-1].split(".")[:-1]
-        parts = ".".join(parts)
-        fname = "html/" + parts + ".html"
+    html = mk.markdown(s, extensions=['extra', 'fenced_code', 'codehilite', 'admonition'])
+    oname = Path(outdir) / (str(Path(input_md_file_path).stem) + ".html")
+    print("Outfile: " / oname)
 
-        with open(fname, 'wb') as fh:
-            fh.write(tmpl.render(post=html).encode("utf-8"))
+    with open(oname, 'wb') as fh:
+        fh.write(tmpl.render(post=html).encode("utf-8"))
