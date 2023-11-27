@@ -8,7 +8,7 @@
       <language>fi</language>
       <copyright>Copyright 2023, Felixi</copyright>
 
-      <lastBuildDate>2023-11-27 19:16:00.884060</lastBuildDate>
+      <lastBuildDate>2023-11-27 19:43:04.360344</lastBuildDate>
 
       <docs>http://tutorialspoint.com/rss </docs>
       <ttl>120</ttl>
@@ -26,7 +26,7 @@
 
       <item>
          <title>Hei, maailma!</title>
-         <link>http://felixin-blogi.dy.fi/html/blog_posts/blogin_perustamisesta.html</link>
+         <link>http://felixin-blogi.dy.fi/blog_posts/blogin_perustamisesta.html</link>
          <description></description>
          <author>Felixi</author>
          <category>ohjelmointi</category>

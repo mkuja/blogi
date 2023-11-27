@@ -36,7 +36,7 @@ class RSSTool(object):
             data = RSSTool._use_bs4_to_see_existing(data_str)
         data.insert(0, {
             "title":  title,
-            "link": self.config["app"]["base_url"] + referred_html_file,
+            "link": self.config["app"]["base_url"] + "/".join(Path(referred_html_file).parts[1:]),
             "description": description,
             "category": category,
             "guid": str(uuid.uuid4()),
