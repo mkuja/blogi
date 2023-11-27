@@ -1,0 +1,6 @@
+[app]
+base_url = "http://felixin-blogi.dy.fi/"
+
+[rss]
+rss_file = 'html/rss/feed.rss'
+blog_posts_dir = 'html/blog_posts/'

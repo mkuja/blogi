@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+   <channel>
+      <title>Felixin blogi</title>
+      <link>http://felixin-blogi.dy.fi</link>
+      <description>Felixin blogi ohjelmoinnista, pelaamisesta ja ehkä jostain muustakin.</description>
+
+      <language>fi</language>
+      <copyright>Copyright 2023, Felixi</copyright>
+
+      <lastBuildDate>{{ data["lastBuildDate"] }}</lastBuildDate>
+
+      <docs>http://tutorialspoint.com/rss </docs>
+      <ttl>120</ttl>
+
+      <managingEditor>hiirifelix@gmail.com</managingEditor>
+      <webMaster>hiirifelix@gmail.com</webMaster>
+
+      <image>
+         <title>Felix</title>
+         <url>http://felixin-blogi.dy.fi/images/hooded_mouse.jpg</url>
+         <link>http://felixin-blogi.dy.fi/</link>
+
+         <description>Felix hiiri</description>
+      </image>
+
+       {% for post in data["posts"] %}
+      <item>
+         <title>{{ post["title"] }}</title>
+         <link>{{ post["link"] }}</link>
+         <description>{{ post["description"] }}</description>
+         <author>Felixi</author>
+         <category>{{ post["category"] }}</category>
+
+         <guid>{{ post["guid"] }}</guid>
+         <pubDate>{{ post["pubDate"] }}</pubDate>
+      </item>
+       {% endfor %}
+
+   </channel>
+</rss>

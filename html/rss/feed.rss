@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+   <channel>
+      <title>Felixin blogi</title>
+      <link>http://felixin-blogi.dy.fi</link>
+      <description>Felixin blogi ohjelmoinnista, pelaamisesta ja ehkä jostain muustakin.</description>
+
+      <language>fi</language>
+      <copyright>Copyright 2023, Felixi</copyright>
+
+      <lastBuildDate>2023-11-27 19:16:00.884060</lastBuildDate>
+
+      <docs>http://tutorialspoint.com/rss </docs>
+      <ttl>120</ttl>
+
+      <managingEditor>hiirifelix@gmail.com</managingEditor>
+      <webMaster>hiirifelix@gmail.com</webMaster>
+
+      <image>
+         <title>Felix</title>
+         <url>http://felixin-blogi.dy.fi/images/hooded_mouse.jpg</url>
+         <link>http://felixin-blogi.dy.fi/</link>
+
+         <description>Felix hiiri</description>
+      </image>
+
+      <item>
+         <title>Hei, maailma!</title>
+         <link>http://felixin-blogi.dy.fi/html/blog_posts/blogin_perustamisesta.html</link>
+         <description></description>
+         <author>Felixi</author>
+         <category>ohjelmointi</category>
+
+         <guid>62fa4642-8199-4a87-95fd-b05e66d0fe63</guid>
+         <pubDate>2023-11-26 18:32:47.097585</pubDate>
+      </item>
+       
+
+   </channel>
+</rss>

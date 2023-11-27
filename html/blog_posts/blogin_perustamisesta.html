@@ -20,46 +20,50 @@
 </div>
 
 <div class="px-6 my-6 mr-auto max-w-5xl bg-white flex rounded-r-sm">
-  <div class="ml-7 py-2 mx-4 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+  <div class="ml-7 py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
     <a href="/">Blogi</a>
   </div>
-  <div class="py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+  <div class="py-2 px-6 mx-4 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
     <a href="/about_me.html">Minä itse</a>
+  </div>
+  <div class="py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/rss/feed.rss">RSS</a>
   </div>
 
 </div>
 <div class="ml-20 text-lg">
   <div class="blog_content bg-amber-50 rounded-sm max-w-4xl p-3 blog_container">
-  <h1>Hei, maailma</h1>
-<p>Tämä on ensimmäinen kirjoitukseni. En ole edes varma haluanko kirjoittaa blogia. Aion kuitenkin kokeilla.
-Ehkä kirjoittaminen vahvistaa oppimista, tai on jopa hauskaa. Toivottavasti ainakin.</p>
-<p>Tarkoitus olisi kirjoitella silloin tällöin jotain tekniikkaan tai peleihin liittyvää tähän blogiin.
-Saatan toki kirjoittaa jotain muutakin diipadaapaa, jos se minua kiinnostaa. Tuskin kiinnostaa. Pistä siis 
-ihmeessä tämä kirjanmerkkeihin, ja koeta katsoa myöhemmin uudelleen mikäli muistat sekä jaksat.</p>
-<h2>Blogin toteutus</h2>
-<p>Seuraavaksi käyn lyhyesti läpi mitä eri tekniikoita tämän blogin toteutuksessa on käytetty, sekä <em>hieman</em> miten tätä
-voi käyttää pohjana omalle blogilleen. Koodia ei ole nimeksikään, mutta se vähä mitä on, on
-<a href="https://opensource.org/license/bsd-2-clause/">BSD-lisenssin</a> alla. ;)</p>
-<h3>Tekniikat</h3>
-<p>Blogin toteutuksessa on käytetty seuraavia tekniikoita ja kirjastoja:</p>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
-<li><a href="https://python.org">Python</a></li>
-<li><a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja3</a></li>
-<li><a href="https://python-markdown.github.io/">Python-Markdown</a></li>
-<li><a href="https://pygments.org/">Pygments</a> </li>
-<li><a href="https://www.docker.com/">Docker</a></li>
-<li><a href="https://fedoraproject.org/">Linux</a></li>
-<li><a href="https://git-scm.com/">Git</a></li>
-</ul>
-<h3>Rakenne</h3>
-<p>Yhdessä blogipostauksessa on mahdotonta käydä kovin hyvin läpi mitään näistä. Onneksi tämä härveli on aika
-yksinkertainen, joten esittelen hieman hakemistorakennetta ja mitä eri projektin tiedostot tekevät. Projekti on
-saatavilla Githubista <a href="https://github.com/mkuja/blogi">täältä</a>.</p>
-<p>Blogissa on tässä vaiheessa sen verran vähän tiedostoja, että suurimman osan voi listata tässä:</p>
-<div class="codehilite"><pre><span></span><code>blogi                               
+    <h1>Hei, maailma</h1>
+    <p>Tämä on ensimmäinen kirjoitukseni. En ole edes varma haluanko kirjoittaa blogia. Aion kuitenkin kokeilla.
+      Ehkä kirjoittaminen vahvistaa oppimista, tai on jopa hauskaa. Toivottavasti ainakin.</p>
+    <p>Tarkoitus olisi kirjoitella silloin tällöin jotain tekniikkaan tai peleihin liittyvää tähän blogiin.
+      Saatan toki kirjoittaa jotain muutakin diipadaapaa, jos se minua kiinnostaa. Tuskin kiinnostaa. Pistä siis
+      ihmeessä tämä kirjanmerkkeihin, ja koeta katsoa myöhemmin uudelleen mikäli muistat sekä jaksat.</p>
+    <h2>Blogin toteutus</h2>
+    <p>Seuraavaksi käyn lyhyesti läpi mitä eri tekniikoita tämän blogin toteutuksessa on käytetty, sekä <em>hieman</em>
+      miten tätä
+      voi käyttää pohjana omalle blogilleen. Koodia ei ole nimeksikään, mutta se vähä mitä on, on
+      <a href="https://opensource.org/license/bsd-2-clause/">BSD-lisenssin</a> alla. ;)</p>
+    <h3>Tekniikat</h3>
+    <p>Blogin toteutuksessa on käytetty seuraavia tekniikoita ja kirjastoja:</p>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
+      <li><a href="https://python.org">Python</a></li>
+      <li><a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja3</a></li>
+      <li><a href="https://python-markdown.github.io/">Python-Markdown</a></li>
+      <li><a href="https://pygments.org/">Pygments</a></li>
+      <li><a href="https://www.docker.com/">Docker</a></li>
+      <li><a href="https://fedoraproject.org/">Linux</a></li>
+      <li><a href="https://git-scm.com/">Git</a></li>
+    </ul>
+    <h3>Rakenne</h3>
+    <p>Yhdessä blogipostauksessa on mahdotonta käydä kovin hyvin läpi mitään näistä. Onneksi tämä härveli on aika
+      yksinkertainen, joten esittelen hieman hakemistorakennetta ja mitä eri projektin tiedostot tekevät. Projekti on
+      saatavilla Githubista <a href="https://github.com/mkuja/blogi">täältä</a>.</p>
+    <p>Blogissa on tässä vaiheessa sen verran vähän tiedostoja, että suurimman osan voi listata tässä:</p>
+    <div class="codehilite"><pre><span></span><code>blogi
 ├── blog_posts                  
 │   └── blogin_perustamisesta.md  -- Ensimmäinen blogikirjoitukseni.
 ├── blog.py                       -- Pääohjelma.
@@ -85,32 +89,41 @@ saatavilla Githubista <a href="https://github.com/mkuja/blogi">täältä</a>.</p
 │           └── index.css         -- Lähtötiedosto tailwindcss-komennolle.
 ├── requirements.txt              -- Lista tarvittavista Python-paketeista.
 └── tailwind.config.js            -- TailwindCSS konfiguraatiotiedosto.
-</code></pre></div>
+</code></pre>
+    </div>
 
-<p>Blogi toimii niin, että kirjoitan Markdown-tiedostoja joista generoin HTML-koodia <code>blogi</code>-hakemistossa olevalla
-<code>blog.py</code>-skriptillä. Sitten lisään käsin linkin <code>index.html</code>-sivulle.</p>
-<h2>Blogin käyttöönotto</h2>
-<h3>Koodin saaminen omalle koneelle</h3>
-<p>Koodin voi ladata Githubista omalle koneelleen .zip-tiedostona, mutta käytän tässä versionhallintaan tarkoitettua 
-git-ohjelmaa. Se pitää kirjaa tiedostojen muutoshistoriasta. Gittiä käyttäen on mahdollista palata tiedostojen
-edellisiin versioihin, tai palauttaa jo poistettuja tiedostoja. Gitin saa ladattua <a href="https://git-scm.com/">tästä linkistä</a>.
-Vaihetoehto ehdotetulle komentorivi-gitille on Githubin graafinen client.</p>
-<p>Joka tapauksessa lataus tapahtuu git-bash komentoriviltä komennolla:</p>
-<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mkuja/blogi.git
-</code></pre></div>
+    <p>Blogi toimii niin, että kirjoitan Markdown-tiedostoja joista generoin HTML-koodia <code>blogi</code>-hakemistossa
+      olevalla
+      <code>blog.py</code>-skriptillä. Sitten lisään käsin linkin <code>index.html</code>-sivulle.</p>
+    <h2>Blogin käyttöönotto</h2>
+    <h3>Koodin saaminen omalle koneelle</h3>
+    <p>Koodin voi ladata Githubista omalle koneelleen .zip-tiedostona, mutta käytän tässä versionhallintaan tarkoitettua
+      git-ohjelmaa. Se pitää kirjaa tiedostojen muutoshistoriasta. Gittiä käyttäen on mahdollista palata tiedostojen
+      edellisiin versioihin, tai palauttaa jo poistettuja tiedostoja. Gitin saa ladattua <a href="https://git-scm.com/">tästä
+        linkistä</a>.
+      Vaihetoehto ehdotetulle komentorivi-gitille on Githubin graafinen client.</p>
+    <p>Joka tapauksessa lataus tapahtuu git-bash komentoriviltä komennolla:</p>
+    <div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mkuja/blogi.git
+</code></pre>
+    </div>
 
-<p>Tämä komento tekee työkansioon uuden <code>blogi</code>-nimisen alikansion, johon koodi tulee. Git bash antaa muistaakseni
-asennettaessa vaihtoehdon lisätä git-bash Windowsin kansioselaimen kontekstivalikkoon, eli hiiren oikealle napille.
-Tätä kautta git-bashin voi avata haluamassaan hakemistossa. Ehkä helpompi tapa on kuitenkin käyttää seuraavia komentoja:</p>
-<div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-lha<span class="w">   </span><span class="c1"># Näyttää tiedostot ja hakemistot</span>
+    <p>Tämä komento tekee työkansioon uuden <code>blogi</code>-nimisen alikansion, johon koodi tulee. Git bash antaa
+      muistaakseni
+      asennettaessa vaihtoehdon lisätä git-bash Windowsin kansioselaimen kontekstivalikkoon, eli hiiren oikealle
+      napille.
+      Tätä kautta git-bashin voi avata haluamassaan hakemistossa. Ehkä helpompi tapa on kuitenkin käyttää seuraavia
+      komentoja:</p>
+    <div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-lha<span class="w">   </span><span
+      class="c1"># Näyttää tiedostot ja hakemistot</span>
 <span class="nb">pwd</span><span class="w">       </span><span class="c1"># Näyttää nykyisen työhakemiston</span>
 <span class="nb">cd</span><span class="w"> </span>hakemisto<span class="w"> </span><span class="c1"># Siirtyy hakemistoon</span>
 <span class="nb">cd</span><span class="w"> </span>..<span class="w">     </span><span class="c1"># Siirtyy ylähakemistoon.</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<p>Repositoryn kloonaamisen jälkeen voikin rassata .html-tiedostot sekä j2-templaatin haluamikseen.</p>
-<p>Äh. En jaksa kirjoittaa enempää. Repository on nyt kloonattu, ja seuraavaksi pitäisi saada Tailwind ja
-Docker toimimaan. Kirjoitan myöhemmin lisää tästä.</p>
+    <p>Repositoryn kloonaamisen jälkeen voikin rassata .html-tiedostot sekä j2-templaatin haluamikseen.</p>
+    <p>Äh. En jaksa kirjoittaa enempää. Repository on nyt kloonattu, ja seuraavaksi pitäisi saada Tailwind ja
+      Docker toimimaan. Kirjoitan myöhemmin lisää tästä.</p>
   </div>
 </div>
 </body>
