@@ -73,10 +73,10 @@ virtuaalikoneesta, mutta ilman käyttöjärjestelmän ydintä. Esimerkiksi konti
 ohjelmia.
 
 Konttien `kuvat` ovat myös kerroksisia. Jokainen instruktio `Dockerfile`:ssä muodostaa oman kerroksensa, ja nämä
-kerrokset ovat uudelleenkäytettäviä. Oletetaan esimerkiksi, että teet kontin, joka palvelee web-sivujasi. Jos muutat
-sivujasi, ja rakennat kontin uudestaan, tämä kontti ei luultavasti vie juuri mitään tilaa kiintolevyltäsi. Yksi päivitys
-web-sivuihin on tilan kannalta luultavasti merkityksetön. Tämä on siksi, että `Docker` uudelleenkäyttää olemassa olevat
-kerrokset kontin luomisessa, eikä niitä tarvitse toistaa.
+kerrokset ovat uudelleenkäytettäviä. Oletetaan esimerkiksi, että teet `konttikuvan`, joka palvelisi web-sivujasi.
+Jos muutat sivujasi, ja rakennat kuvan uudestaan, tämä kontti ei luultavasti vie juuri mitään tilaa kiintolevyltäsi. 
+Yksi päivitys web-sivuihin on tilan kannalta luultavasti merkityksetön. Tämä on siksi, että `Docker` uudelleenkäyttää
+olemassa olevat kerrokset kuvan luomisessa, eikä niitä tarvitse toistaa.
 
 `Dockerfile` on aika helppo luoda, mutta se ei ole tarpeen tässä, sillä repositoryssä on `Dockerfile` mukana. Sen sijaan
 tässä on muutama hyödyllinen komento:

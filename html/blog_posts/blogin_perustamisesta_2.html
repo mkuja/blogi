@@ -87,10 +87,10 @@ ylimääräisiä ohjelmia, paitsi ne mitä halutun toiminnan ajamiseen tarvitaan
 virtuaalikoneesta, mutta ilman käyttöjärjestelmän ydintä. Esimerkiksi kontissa on oma hakemistopuunsa, tiedostoja sekä
 ohjelmia.</p>
 <p>Konttien <code>kuvat</code> ovat myös kerroksisia. Jokainen instruktio <code>Dockerfile</code>:ssä muodostaa oman kerroksensa, ja nämä
-kerrokset ovat uudelleenkäytettäviä. Oletetaan esimerkiksi, että teet kontin, joka palvelee web-sivujasi. Jos muutat
-sivujasi, ja rakennat kontin uudestaan, tämä kontti ei luultavasti vie juuri mitään tilaa kiintolevyltäsi. Yksi päivitys
-web-sivuihin on tilan kannalta luultavasti merkityksetön. Tämä on siksi, että <code>Docker</code> uudelleenkäyttää olemassa olevat
-kerrokset kontin luomisessa, eikä niitä tarvitse toistaa.</p>
+kerrokset ovat uudelleenkäytettäviä. Oletetaan esimerkiksi, että teet <code>konttikuvan</code>, joka palvelisi web-sivujasi.
+Jos muutat sivujasi, ja rakennat kuvan uudestaan, tämä kontti ei luultavasti vie juuri mitään tilaa kiintolevyltäsi. 
+Yksi päivitys web-sivuihin on tilan kannalta luultavasti merkityksetön. Tämä on siksi, että <code>Docker</code> uudelleenkäyttää
+olemassa olevat kerrokset kuvan luomisessa, eikä niitä tarvitse toistaa.</p>
 <p><code>Dockerfile</code> on aika helppo luoda, mutta se ei ole tarpeen tässä, sillä repositoryssä on <code>Dockerfile</code> mukana. Sen sijaan
 tässä on muutama hyödyllinen komento:</p>
 <ul>
