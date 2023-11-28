@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Felixin blogi</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles_for_posts.css">
+  <link rel="stylesheet" href="/css/codehilite.css">
+</head>
+<body class="bg-gray-800">
+<div class="bg-amber-50 text-gray-800 font-bold text-8xl">
+  <p class="font-mono text-2xl ml-7 translate-y-7">Teknohiiri Felixin seikkailuja.</p>
+  <p class="font-thin text-base ml-10 left-16 top-0 translate-y-7">
+    Eli jotain koodailusta, sekä hieman peleistä. Muuta täältä tuskin löydätkään.</p>
+  <p class="pb-2 mt-7 sm:invisible">. . ..<span class="inline-block animate-wiggle">~(,,^></span></p>
+</div>
+
+<div class="px-6 my-6 mr-auto max-w-5xl bg-white flex rounded-r-sm">
+  <div class="ml-7 py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/">Blogi</a>
+  </div>
+  <div class="py-2 px-6 mx-4 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/about_me.html">Minä itse</a>
+  </div>
+  <div class="py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/rss/feed.rss" rel="alternate" type="application/rss+xml" title="Tilaa päivitykset blogiini">RSS</a>
+  </div>
+</div>
+<div class="ml-20 text-lg sm:ml-2">
+  <div class="blog_content bg-amber-50 rounded-sm max-w-4xl p-3 blog_container">
+    <h1>Hei, maailma! Osa 2</h1>
+<p>Haluaisin mainita tässä ensiksi, olen kirjoittanut ohjeet omaksi huvikseni, eivätkä ne ole täydelliset. Jos kuitenkin
+teet perässä niin olisi kiva kuulla oliko ohjeista mitään apua, ja millaisia ongelmia tai haasteita tuli vastaan.</p>
+<p>Tässä toisessa kirjoituksessani jatkan siitä, mihin ensimmäisessä jäin. Lataamme Node JavaScript-tulkin, jota
+tailwindcss käyttää. Sitten katsomme miten <code>blog.py</code> -komentoa käytetään .md-tiedostojen muuttamiseksi HTML:ksi, sekä
+miten RSS-syöte päivitetään käyttäen <code>blog.py</code> -scriptiä.</p>
+<h2>Node</h2>
+<p><a href="https://nodejs.org/en">Node.js</a> JavaScript-tulkki on ladattavissa edellä olevasta linkistä. Asentaminen on todella
+helppoa hiiren naksuttelua, enkä käy sitä tässä läpi enempää.</p>
+<p>Node tarjoaa <code>npx</code> ja <code>npm</code> komennot joita voi käyttää Windowsin cmd.exe:stä ja Git BASH:stä. Ensin mainittua käytetään
+erilaisien komentojen ajamiseen, joita <a href="https://www.npmjs.com/">Npm</a> pakettivarastossa olevat paketit tarjoavat.
+Myöhemmin mainittu <code>npm</code>-komennolla, taas asennetaan tästä pakettivarastosta kirjastoja sekä ohjelmiakin.</p>
+<h2>Tailwind</h2>
+<p>Tailwind on CSS-kirjasto. Yksi monista. Mielestäni se helpottaa ja nopeuttaa sivujen muotoilua. Joku tykkää, toinen ei.</p>
+<h3>Tailwindin käyttöönotto</h3>
+<div class="admonition note">
+<p class="admonition-title">Huom.</p>
+<p>Blogi on olemassa oleva projekti. Alla oleva komento asentaa vain tailwindin, mutta ei tee asetustiedostoa.
+Katso täydet aloitusrimpsut uudelle projektille <a href="https://tailwindcss.com">tailwindcss</a> sivulta.</p>
+</div>
+<p>Projektin juuressa, <code>blog</code>-hakemistossa kirjoita:</p>
+<div class="codehilite"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>tailwind
+npx<span class="w"> </span>-w<span class="w"> </span>-i<span class="w"> </span>my_blog/templates/css/index.css<span class="w"> </span>-o<span class="w"> </span>html/css/styles.css
+</code></pre></div>
+
+<p>Tämä asentaa Tailwindin, sekä katsoo muutoksia tiedostoissa ja asetuksissa. Näiden perusteella se sitten tekee
+yhden CSS-tiedoston, jossa on tarvittavat muotoilut.</p>
+<p>Jee. Nyt Tailwind-muotoiluihin tehtyjen muutoksien pitäisi toimia. Olemme <code>Dockeria</code> vaille valmiina siitä, että sivujen
+muotoilua ja sisältöä voisi ruveta rassaamaan omaan blogiin sopivaksi.</p>
+<h2>Docker</h2>
+<p><code>Docker</code> on kätevä vaihtoehto <code>XAMPP</code>:lle ja muille sen kaltaisille ohjelmille, jotka niputtavat web-palvelimen ynnä
+tietokannan sekä muita tilpehöörejä. Dockerilla on helppo niputtaa kehitettävä web-sivu lataamalla web-palvelimen
+sisältävä kontti omalle koneelle ja sijoittamalla web-sivut hakemistoon josta tämä palvelin sitten etsii 
+<code>index.html</code>-tiedostoa. Tämän blogin tapauksessa vaadittu vaivan määrä oli kaksi riviä tekstiä <code>Dockerfile</code> tiedostoon,
+ja yksi komento git-bashiin! Aika helppoa, jos minulta kysytään.</p>
+<p>Periaatteessa <code>Node.js</code>-tulkkia tai Tailwindiä ei olisi edes tarvinnut asentaa. Ne olisi voinut yhtä hyvin sisällyttää
+kehityskonttiin, johon tulisi lisäksi <code>Python</code>-tulkki ja tarvittavat kirjastot. Halusin kuitenkin asentaa ne omalle
+koneelleni. Saatan lisätä myöhemmin GitHub repositoryyn <code>Dockerfile-dev</code>-tiedoston joka tekisi tämän. Nyt sitä ei
+kuitenkaan ole.</p>
+<h3>Dockerin asentaminen</h3>
+<p><code>Dockerin</code> asentaminen voi olla hieman monimutkaisempaa kuin <code>Node.js</code>-ohjelman. Lataa 
+<a href="https://www.docker.com/">tästä linkistä</a> Docker Desktop, ja koeta asentaa se. Jos asennusohjelma ei sano mitään, ja
+pystyt valitsemaan WSL2-perustaiset kontit, niin hyvä. Sinulla on virtualisointi päällä BIOSin asetuksista. Jos taas
+et voi valita WSL2 pohjaisia kontteja niin sinun täytyy mennä BIOSin asetuksista kääntämään virtualisointi päälle. 
+Asetuksen nimi vaihtelee ilmeisesti emolevyn ja prosessorivalmistajan mukaan. 
+<a href="https://support.microsoft.com/fi-fi/windows/virtualisoinnin-ottaminen-k%C3%A4ytt%C3%B6%C3%B6n-windows-11-tietokoneissa-c5578302-6e43-4b4b-a449-8ced115f58e1">Tässä</a>
+on ohjeet muutaman valmistajan valmiskoneisiin. Jos ei onnistanut, niin koeta katsoa BIOS-asetuksisista virtualisointiin
+liittyviä asetuksia, tai katso emolevyn ohjekirjaa.</p>
+<p>Virtualisointituen päällekytkemisen jälkeen WSL2 pohjaisten konttien käytön pitäisi onnistua.</p>
+<h3>Dockerin lyhyt oppimäärä, eli termejä sekä komentoja</h3>
+<p>Kontti (engl. container) on käynnissä oleva instanssi kontin kuvasta (engl. image). Kontissa on yleensä vähän
+ylimääräisiä ohjelmia, paitsi ne mitä halutun toiminnan ajamiseen tarvitaan. Tämä on ikäänkuin kevytversio
+virtuaalikoneesta, mutta ilman käyttöjärjestelmän ydintä. Esimerkiksi kontissa on oma hakemistopuunsa, tiedostoja sekä
+ohjelmia.</p>
+<p>Konttien <code>kuvat</code> ovat myös kerroksisia. Jokainen instruktio <code>Dockerfile</code>:ssä muodostaa oman kerroksensa, ja nämä
+kerrokset ovat uudelleenkäytettäviä. Oletetaan esimerkiksi, että teet kontin, joka palvelee web-sivujasi. Jos muutat
+sivujasi, ja rakennat kontin uudestaan, tämä kontti ei luultavasti vie juuri mitään tilaa kiintolevyltäsi. Yksi päivitys
+web-sivuihin on tilan kannalta luultavasti merkityksetön. Tämä on siksi, että <code>Docker</code> uudelleenkäyttää olemassa olevat
+kerrokset kontin luomisessa, eikä niitä tarvitse toistaa.</p>
+<p><code>Dockerfile</code> on aika helppo luoda, mutta se ei ole tarpeen tässä, sillä repositoryssä on <code>Dockerfile</code> mukana. Sen sijaan
+tässä on muutama hyödyllinen komento:</p>
+<ul>
+<li><code>docker container --help</code>  <em>Tulostaa mahdolliset docker container komennot.</em></li>
+<li><code>docker container ls</code>  <em>Listaa käynnissä olevat kontit.</em></li>
+<li><code>docker container ls -a</code>  <em>Listaa kaikki olemassa olevat kontit.</em></li>
+<li><code>docker container prune</code>  <em>Poistaa käyttämättömät kontit.</em></li>
+<li><code>docker image ls</code>  <em>Listaa kaikki olemassa olevat kuvat omalta koneeltasi.</em></li>
+<li><code>docker image build . -t joku_nimi</code>  <em>Rakentaa kuvan työhakemistossa olevasta <code>Dockerfile</code>:stä.</em></li>
+<li><code>docker build . -t joku_nimi</code>  <em>Alias yllä olevalle.</em></li>
+<li><code>docker run --help</code>  <em>Konttien ajamiseen ohjeet.</em></li>
+</ul>
+<p>Voit käynnistää kontin joka palvelee näitä sivuja komennolla:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-t<span class="w"> </span>blogi
+docker<span class="w"> </span>run<span class="w"> </span>--publish<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>-d<span class="w"> </span>blogi
+</code></pre></div>
+
+<p>Kehitettäessä niin sanottu bind mount mahdollistaa kansion liittämisen kontin sisälle. Se tapahtuu esimerkiksi näin:</p>
+<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-t<span class="w"> </span>blogi
+docker<span class="w"> </span>run<span class="w"> </span>--publish<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>-d<span class="w"> </span>--mount<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/html&quot;</span>,target<span class="o">=</span>/usr/share/nginx/html<span class="w"> </span>blogi
+</code></pre></div>
+
+<p>Tuo <code>"$(pwd)"</code> ei toimi Windowsin cmd:ssä. En tiedä miten se pitäisi kirjoittaa siinä. Bashissä se käynnistää
+alitulkin, ja ajaa komennon pwd. Lisätietoa bind mounteista <a href="https://docs.docker.com/storage/bind-mounts/">täältä</a>.</p>
+<p>Jee. Nyt vain pitäisi vain rassata sivun muotoilut ja sisältö omannäköisiksi.</p>
+<p>Ainiin: Nyt sivujen pitäisi toimia paremmin puhelimella kuin ennen. Myös puhelimen ollessa pystysuunnassa.
+Koodiblokit tietty jää osin näkymättömiin, mutta sille tuskin voi tehdä mitään. En tiedä miten sen saisi toimimaan
+mobiililla. Rivitys ei ole hyvä, ja suorat rivit on myös huono, sillä osa rivistä jää piiloon. Ehkä pitäisi näyttää
+vain virheilmoitus mobiililaitteille, ja käskeä lukemaan jutut tietokoneella.</p>
+<p>Ainiin2: Valmiita <code>Docker kuvia</code> löytää osoitteesta <a href="https://hub.docker.com/">hub.docker.com</a>.</p>
+  </div>
+</div>
+</body>
+</html>

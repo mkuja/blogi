@@ -43,3 +43,14 @@
 .codehilite {
     padding: 0.5rem;
 }
+
+.admonition {
+    margin: 1rem;
+    color: #cb6c20;
+}
+.admonition a:link {
+    color: #00688B;
+}
+.admonition a:visited {
+    color: #00688B;
+}

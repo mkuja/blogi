@@ -8,7 +8,7 @@
       <language>fi</language>
       <copyright>Copyright 2023, Felixi</copyright>
 
-      <lastBuildDate>2023-11-27 19:43:04.360344</lastBuildDate>
+      <lastBuildDate>2023-11-28 05:13:20.171313</lastBuildDate>
 
       <docs>http://tutorialspoint.com/rss </docs>
       <ttl>120</ttl>
@@ -24,6 +24,18 @@
          <description>Felix hiiri</description>
       </image>
 
+       
+      <item>
+         <title>Hei, maailma! Osa 2</title>
+         <link>http://felixin-blogi.dy.fi/blog_posts/blogin_perustamisesta_2.html</link>
+         <description>Kirjoitan pääasiassa Dockerista, ja vähän myös Tailwindistä.</description>
+         <author>Felixi</author>
+         <category>ohjelmointi</category>
+
+         <guid>6126abec-6f51-4047-b863-cd887ae93d1f</guid>
+         <pubDate>2023-11-28 05:13:20.165314</pubDate>
+      </item>
+       
       <item>
          <title>Hei, maailma!</title>
          <link>http://felixin-blogi.dy.fi/blog_posts/blogin_perustamisesta.html</link>

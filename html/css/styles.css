@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
 .left-16 {
   left: 4rem;
 }
@@ -766,5 +770,9 @@ video {
 @media (max-width: 500px) {
   .sm\:invisible {
     visibility: hidden;
+  }
+
+  .sm\:ml-2 {
+    margin-left: 0.5rem;
   }
 }
