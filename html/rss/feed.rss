@@ -8,7 +8,7 @@
       <language>fi</language>
       <copyright>Copyright 2023, Felixi</copyright>
 
-      <lastBuildDate>2023-11-28 05:13:20.171313</lastBuildDate>
+      <lastBuildDate>2024-01-19 17:16:16.533511</lastBuildDate>
 
       <docs>http://tutorialspoint.com/rss </docs>
       <ttl>120</ttl>
@@ -26,9 +26,20 @@
 
        
       <item>
+         <title>Serverless-kokeiluja</title>
+         <link>http://felixin-blogi.dy.fi/blog_posts/aws_ajatuksia.html</link>
+         <description>Serverless kokeilusta vähän mietteitä.</description>
+         <author>Felixi</author>
+         <category>ohjelmointi</category>
+
+         <guid>93a3209a-b12d-48e0-8fc8-0665b69fb920</guid>
+         <pubDate>2024-01-19 17:16:16.527479</pubDate>
+      </item>
+       
+      <item>
          <title>Hei, maailma! Osa 2</title>
          <link>http://felixin-blogi.dy.fi/blog_posts/blogin_perustamisesta_2.html</link>
-         <description>Kirjoitan pääasiassa Dockerista, ja vähän myös Tailwindistä.</description>
+         <description></description>
          <author>Felixi</author>
          <category>ohjelmointi</category>
 

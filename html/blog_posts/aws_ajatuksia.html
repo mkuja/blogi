@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Felixin blogi</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles_for_posts.css">
+  <link rel="stylesheet" href="/css/codehilite.css">
+</head>
+<body class="bg-gray-800">
+<div class="bg-amber-50 text-gray-800 font-bold text-8xl">
+  <p class="font-mono text-2xl ml-7 translate-y-7">Teknohiiri Felixin seikkailuja.</p>
+  <p class="font-thin text-base ml-10 left-16 top-0 translate-y-7">
+    Eli jotain koodailusta, sekä hieman peleistä. Muuta täältä tuskin löydätkään.</p>
+  <p class="pb-2 mt-7 sm:invisible">. . ..<span class="inline-block animate-wiggle">~(,,^></span></p>
+</div>
+
+<div class="px-6 my-6 mr-auto max-w-5xl bg-white flex rounded-r-sm">
+  <div class="ml-7 py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/">Blogi</a>
+  </div>
+  <div class="py-2 px-6 mx-4 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/about_me.html">Minä itse</a>
+  </div>
+  <div class="py-2 px-6 bg-amber-50 border-l-2 border-r-2 border-amber-950 font-mono text-xl">
+    <a href="/rss/feed.rss" rel="alternate" type="application/rss+xml" title="Tilaa päivitykset blogiini">RSS</a>
+  </div>
+</div>
+<div class="ml-20 text-lg sm:ml-2">
+  <div class="blog_content bg-amber-50 rounded-sm max-w-4xl p-3 blog_container">
+    <h1>Uusi jakso koulussa, ja uudet kujeet</h1>
+<p>Tässä jaksossa meillä on <em>Pilvipalvelut</em>-kurssi opiskeltavana, ja siihen
+sisältyy kaikkea mahdollista Dockerista ja AWS:n serverless-palveluista
+asioihin, joihin en ole vielä perehtynyt edes nimeltä.</p>
+<h2>Amplify</h2>
+<p>Tässä postauksessa tuumailen hieman mitä mieltä saattaisin olla parista AWS:n palvelusta
+yhden AWS serverless <a href="https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/">tutoriaalin</a>
+jälkeen. Pohja ei ole vahva. Se ei estä kirjoittamasta tästäkin aiheesta :D</p>
+<p>Alku on aina vaikeaa. Tai siltä se tuntuu. Jos esimerkiksi otetaan vaikka
+webbiserverin pystytys, niin NGINX:n, DNS:n ja certtien conffaus tuntuu helpommalta
+kuin Amplify-palvelun käyttöönotto. Tai itseasiassa ei ole. Tässä oli minulla
+vinouma. Ensimmäisen olen tehnyt ennemminkin, ja toiseen tutustuin ensimmäistä kertaa.
+Totta kai vanha ja tuttu on helppoa.</p>
+<p>Amplify on siis Amazon AWS -palvelu, jossa voi rakentaa ja hostata webbisivuja tai
+mobiilisovelluksia. En ole tarkkaan selvillä mitä kaikkea Amplify osaa rakentaa, mutta
+ilmeisesti Reactit ja Vuet menee kyllä. Muusta en tiedä ;).</p>
+<p>Amplify oli lopulta aika helppo kokemus. Käyttöönotto tapahtui seuraavin askelin:</p>
+<ol>
+<li>Tein Git repositoryn CodeCommittiin, joka on AWS:n repopalvelu. Myös GitHub, yms. toimivat.</li>
+<li>Otin Amplifyn käyttöön, ja yhdistin sen repositoryyni.</li>
+<li>Tein Service Rolen AWS:n, eli toisin sanoen roolin jota käyttäen AWS palvelut voivat käyttää
+    toisia AWS-palveluita. Tämä tarvittiin CodeCommit repositoryn kloonausta varten.</li>
+<li>Pushasin sisällön CodeCommit-repon master-haaraan, josta muutokset otetaan automaattisesti
+    käyttöön.</li>
+</ol>
+<p>Aika vaivaton tapa hostata esimerkiksi oma blogi. Jos osaa tehdä webbisivuja ja osaa
+Gitin alkeet, saa melko helposti oman blogin pystyyn AWS Amplify -palvelulla. En tiedä
+mitä domainin hankkiminen AWS:stä vaatii. Mutta jos sellaisen haluaa, niin vaikka 
+Bittivirrasta saa domainin, ja Cloudflaren nimipalvelimia voi käyttää ilmaiseksi.</p>
+<h2>Cognito</h2>
+<p>Cognito oli toinen positiivinen asia, joka kyseisestä oppaasta jäi mieleen. Melko pienellä
+vaivalla omalle verkkosivulleen voi lisätä toimintoja jotka vaativat rekistöitymistä ja
+salasanoja. Ainakin paljon helpommin, kuin itse koodaamalla JWT-tokeneita, ja säilyttämällä
+salasanatiivisteitä.</p>
+<h2>Lambda ja Dynamo</h2>
+<p>AWS Lambda on palvelu, jossa voi ajaa pätkän koodia, kun jokin tapahtuma tapahtuu. Vaikka
+esimerkiksi HTTP-pyyntö API Gatewaylle, joka taas herättelee Lambdaa.</p>
+<p>Dynamo taas on AWS:n nosql-tietokanta. Kokemusta tästä minulla on noin 5 minuuttia.
+Oli helppo ottaa käyttöön.</p>
+<p>Lambda ja Dynamo tuntuivat hieman samantekeviltä. Dynamo oli helppo ottaa käyttöön ja liittää
+palveluun, mutta myös tietokanta kontissa on helppo ratkaisu. Tosin se ei enää ole serverless?
+Mitä väliä. En tiedä. Lambda taas tuntui hieman... Joltakin mitä en haluaisi käyttää. Ajatus,
+että ohjelma koostuu vain useista lambdoista, jotka sisältävät pikkiriikkisen koodia kukin tuntuu
+sekavalta. Tosin ilman kokemusta on helppo puhua ;)</p>
+  </div>
+</div>
+</body>
+</html>

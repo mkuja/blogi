@@ -33,6 +33,13 @@
     margin-left: 2.5rem;
 }
 
+.blog_content ol {
+    list-style-type: decimal;
+    display: block;
+    margin-left: 2.5rem;
+    margin-top: 0.5rem;
+}
+
 .blog_content a:link {
     color: #CD5555;
 }
