@@ -25,39 +25,28 @@ class Game {
         this.keysDisabled = false;
     }
 
+    _disabbleKeysForAMoment = () => {
+        this.keysDisabled = true;
+        clearInterval(timeout_id);
+        setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
+        game.tick();
+        game.render();
+        this.update(UPDATE_INTERVAL);
+    }
+
     _keydown = (event) => {
         if (event.key === 'ArrowUp' && this.previousKeyPressed !== 'ArrowUp' && !this.keysDisabled) {
             this.wyrm.setDirection('up');
-            this.keysDisabled = true;
-            clearInterval(timeout_id);
-            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
-            game.tick();
-            game.render();
-            this.update(UPDATE_INTERVAL);
+            this._disabbleKeysForAMoment();
         } else if (event.key === 'ArrowDown' && this.previousKeyPressed !== 'ArrowDown' && !this.keysDisabled) {
             this.wyrm.setDirection('down');
-            this.keysDisabled = true;
-            clearInterval(timeout_id);
-            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
-            game.tick();
-            game.render();
-            this.update(UPDATE_INTERVAL);
+            this._disabbleKeysForAMoment();
         } else if (event.key === 'ArrowLeft' && this.previousKeyPressed !== 'ArrowLeft' && !this.keysDisabled) {
             this.wyrm.setDirection('left');
-            this.keysDisabled = true;
-            clearInterval(timeout_id);
-            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
-            game.tick();
-            game.render();
-            this.update(UPDATE_INTERVAL);
+            this._disabbleKeysForAMoment();
         } else if (event.key === 'ArrowRight' && this.previousKeyPressed !== 'ArrowRight' && !this.keysDisabled) {
             this.wyrm.setDirection('right');
-            this.keysDisabled = true;
-            clearInterval(timeout_id);
-            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
-            game.tick();
-            game.render();
-            this.update(UPDATE_INTERVAL);
+            this._disabbleKeysForAMoment();
         }
     }
 
