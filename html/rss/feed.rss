@@ -8,7 +8,7 @@
       <language>fi</language>
       <copyright>Copyright 2023, Felixi</copyright>
 
-      <lastBuildDate>2024-01-19 17:16:16.533511</lastBuildDate>
+      <lastBuildDate>2024-02-10 02:13:32.633275</lastBuildDate>
 
       <docs>http://tutorialspoint.com/rss </docs>
       <ttl>120</ttl>
@@ -26,9 +26,20 @@
 
        
       <item>
+         <title>Turha matopeli</title>
+         <link>http://felixin-blogi.dy.fi/blog_posts/matopeli.html</link>
+         <description>Saa nähdä kelpaako...</description>
+         <author>Felixi</author>
+         <category>Pelit</category>
+
+         <guid>de12615a-0cc7-470b-9819-84ab3fec5914</guid>
+         <pubDate>2024-02-10 02:13:32.627276</pubDate>
+      </item>
+       
+      <item>
          <title>Serverless-kokeiluja</title>
          <link>http://felixin-blogi.dy.fi/blog_posts/aws_ajatuksia.html</link>
-         <description>Serverless kokeilusta vähän mietteitä.</description>
+         <description></description>
          <author>Felixi</author>
          <category>ohjelmointi</category>
 
