@@ -1,6 +1,7 @@
 const SIZE = 20;
 const GAME_ELEM = document.getElementById('game');
 const UPDATE_INTERVAL = 220;  // ms
+const REPEAT_INHIBITION_TIMEOUT = 30;  // ms
 let timeout_id;
 
 class Game {
@@ -9,6 +10,8 @@ class Game {
         this.apples = [];
         this.tickCount = 0;
         this.gameOver = false;
+        this.keysDisabled = false;
+        this.previousKeyPressed = null;
     }
 
     update = (interval) => {
@@ -18,15 +21,43 @@ class Game {
         }, interval);
     }    
 
+    _enableKeys = () => {
+        this.keysDisabled = false;
+    }
+
     _keydown = (event) => {
-        if (event.key === 'ArrowUp') {
+        if (event.key === 'ArrowUp' && this.previousKeyPressed !== 'ArrowUp' && !this.keysDisabled) {
             this.wyrm.setDirection('up');
-        } else if (event.key === 'ArrowDown') {
+            this.keysDisabled = true;
+            clearInterval(timeout_id);
+            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
+            game.tick();
+            game.render();
+            this.update(UPDATE_INTERVAL);
+        } else if (event.key === 'ArrowDown' && this.previousKeyPressed !== 'ArrowDown' && !this.keysDisabled) {
             this.wyrm.setDirection('down');
-        } else if (event.key === 'ArrowLeft') {
+            this.keysDisabled = true;
+            clearInterval(timeout_id);
+            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
+            game.tick();
+            game.render();
+            this.update(UPDATE_INTERVAL);
+        } else if (event.key === 'ArrowLeft' && this.previousKeyPressed !== 'ArrowLeft' && !this.keysDisabled) {
             this.wyrm.setDirection('left');
-        } else if (event.key === 'ArrowRight') {
+            this.keysDisabled = true;
+            clearInterval(timeout_id);
+            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
+            game.tick();
+            game.render();
+            this.update(UPDATE_INTERVAL);
+        } else if (event.key === 'ArrowRight' && this.previousKeyPressed !== 'ArrowRight' && !this.keysDisabled) {
             this.wyrm.setDirection('right');
+            this.keysDisabled = true;
+            clearInterval(timeout_id);
+            setTimeout(this._enableKeys, REPEAT_INHIBITION_TIMEOUT);
+            game.tick();
+            game.render();
+            this.update(UPDATE_INTERVAL);
         }
     }
 
@@ -85,8 +116,13 @@ class Game {
             GAME_ELEM.removeChild(GAME_ELEM.childNodes[0]);
         }
         GAME_ELEM.className = 'game-over';
+
+        localStorage.setItem('highscore', Math.max(localStorage.getItem('highscore') || 0, this.wyrm.body.length));
+
         let elem = document.createElement('div');
-        elem.innerHTML = '<p>Peli ohi.</p><button id="new-game-button" >Uusi peli</button>';
+        elem.innerHTML = `<p>Peli ohi.</p><button id="new-game-button" >Uusi peli</button><br>
+        <p class="score">Madon pituus: ${this.wyrm.body.length}</p>
+        <p class="score">Ennätyspituus: ${localStorage.getItem('highscore')}</p>`;
         elem.className = 'game-over';
         GAME_ELEM.appendChild(elem);
         document.getElementById('new-game-button').addEventListener('click', this.newGame);

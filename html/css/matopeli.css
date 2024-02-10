@@ -36,6 +36,7 @@
     box-sizing: border-box;
     background-color: #eef;
     display: flex;
+    flex-direction: column;
     font-family: 'Arial', sans-serif;
     font-size: 36px;
     width: 400px;
@@ -56,4 +57,9 @@
 
 #new-game-button:hover {
     background-color: #ccf;
+}
+
+.score {
+    font-size: 24px;
+    margin-top: 20px;
 }
