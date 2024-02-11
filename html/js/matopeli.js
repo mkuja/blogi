@@ -173,7 +173,32 @@ class Wyrm {
      * 
      * @param {String} direction; One of: `'right'`, `'left'`, `'up'`, `'down'`. 
      */
-    setDirection = (direction) => { this.direction = direction; }
+    setDirection = (direction) => { 
+        switch (direction) {
+            case 'right':
+                if (this.direction !== 'left') {
+                    this.direction = direction;
+                }
+                break;
+            case 'left':
+                if (this.direction !== 'right') {
+                    this.direction = direction;
+                }
+                break;
+            case 'up':
+                if (this.direction !== 'down') {
+                    this.direction = direction;
+                }
+                break;
+            case 'down':
+                if (this.direction !== 'up') {
+                    this.direction = direction;
+                }
+                break;
+            default:
+                throw new Error('Invalid direction');
+        }
+    }
 
     /**
      * Move the wyrm in the direction specified by this.direction.
